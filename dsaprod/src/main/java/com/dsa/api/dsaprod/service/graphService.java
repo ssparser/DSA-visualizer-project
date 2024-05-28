@@ -6,14 +6,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class graphService 
-{
+public class graphService {
     private static List<List<Character>> grid = new ArrayList<>();
     private static int row = 0;
     private static int col = 0;
 
     public static List<List<Character>> createGraph(int r, int c) {
-        grid.clear(); 
+        grid.clear();
         for (int i = 0; i < r; i++) {
             List<Character> adjacencyList = new ArrayList<>(c);
             for (int j = 0; j < c; j++) {

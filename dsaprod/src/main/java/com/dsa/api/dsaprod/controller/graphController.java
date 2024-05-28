@@ -46,19 +46,19 @@ public class graphController {
     @PostMapping("/init")
     public void startInit(@RequestBody gridDTO gridRequest) {
 
-            int x = gridRequest.getX();
-            int y = gridRequest.getY();
-            GraphService.initGraph(x, y);
-            
+        int x = gridRequest.getX();
+        int y = gridRequest.getY();
+        GraphService.initGraph(x, y);
+
     }
 
     @PostMapping("/dest")
     public void dest(@RequestBody gridDTO gridRequest) {
 
-            int x = gridRequest.getX();
-            int y = gridRequest.getY();
-            GraphService.Dest(x, y);
-            
+        int x = gridRequest.getX();
+        int y = gridRequest.getY();
+        GraphService.Dest(x, y);
+
     }
 
     @GetMapping("/grid")
@@ -69,7 +69,7 @@ public class graphController {
             System.out.println("Grid is not null, size: " + GraphService.getGrid().size());
         }
         return GraphService.getGrid();
-    }    
-    
+    }
+
     // mg
 }
