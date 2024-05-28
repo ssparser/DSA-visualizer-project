@@ -6,21 +6,34 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class graphService {
+public class graphService 
+{
+    private static List<List<Character>> grid = new ArrayList<>();
+    private static int row = 0;
+    private static int col = 0;
 
-    public static List<List<Integer>> createGraph(int r, int c)
-    {
-        List<List<Integer>> grid = new ArrayList<>(r);
-
-         for (int i = 0; i < r; i++) {
-            List<Integer> adjacencyList = new ArrayList<>(c);
+    public static List<List<Character>> createGraph(int r, int c) {
+        grid.clear(); 
+        for (int i = 0; i < r; i++) {
+            List<Character> adjacencyList = new ArrayList<>(c);
             for (int j = 0; j < c; j++) {
-                adjacencyList.add(0);  // Fill each list with '0's
+                adjacencyList.add('0');
             }
             grid.add(adjacencyList);
         }
-
+        row = r;
+        col = c;
         return grid;
     }
 
+    public void initGraph(int r, int c) {
+        if ((r >= 0) && (r < row) && (c >= 0) && (c < col)) {
+            List<Character> adjacencyList = grid.get(r);
+            adjacencyList.set(c, '1');
+        }
+    }
+
+    public List<List<Character>> getGrid() {
+        return grid;
+    }
 }
