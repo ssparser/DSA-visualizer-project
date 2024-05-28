@@ -39,6 +39,7 @@ public class graphController {
             int y = gridRequest.getY();
             List<List<Integer>> grid = GraphService.createGraph(x, y);
             return ResponseEntity.ok(grid);
+            
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
