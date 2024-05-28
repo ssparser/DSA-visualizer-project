@@ -44,13 +44,23 @@ public class graphController {
     }
 
     @PostMapping("/init")
-    public void postMethodName(@RequestBody gridDTO gridRequest) {
+    public void startInit(@RequestBody gridDTO gridRequest) {
 
             int x = gridRequest.getX();
             int y = gridRequest.getY();
             GraphService.initGraph(x, y);
             
     }
+
+    @PostMapping("/dest")
+    public void dest(@RequestBody gridDTO gridRequest) {
+
+            int x = gridRequest.getX();
+            int y = gridRequest.getY();
+            GraphService.Dest(x, y);
+            
+    }
+
     @GetMapping("/grid")
     public List<List<Character>> getGrid() {
         if (GraphService.getGrid() == null) {

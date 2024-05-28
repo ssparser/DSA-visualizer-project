@@ -29,7 +29,14 @@ public class graphService
     public void initGraph(int r, int c) {
         if ((r >= 0) && (r < row) && (c >= 0) && (c < col)) {
             List<Character> adjacencyList = grid.get(r);
-            adjacencyList.set(c, '1');
+            adjacencyList.set(c, 'S');
+        }
+    }
+
+    public void Dest(int r, int c) {
+        if ((r >= 0) && (r < row) && (c >= 0) && (c < col) && grid.get(r).get(c) != 'S') {
+            List<Character> adjacencyList = grid.get(r);
+            adjacencyList.set(c, 'D');
         }
     }
 
