@@ -44,14 +44,14 @@ public class graphController {
         }
     }
 
-    // @PostMapping("/init")
-    // public void startInit(@RequestBody gridDTO gridRequest) {
+    @PostMapping("/init")
+    public void startInit(@RequestBody gridDTO gridRequest) {
 
-    //     int x = gridRequest.getX();
-    //     int y = gridRequest.getY();
-    //     GraphService.initGraph(x, y);
+        int x = gridRequest.getX();
+        int y = gridRequest.getY();
+        graphService.initGraph(x, y);
 
-    // }
+    }
 
     // @PostMapping("/dest")
     // public void dest(@RequestBody gridDTO gridRequest) {
@@ -62,15 +62,10 @@ public class graphController {
 
     // }
 
-    // @GetMapping("/grid")
-    // public List<List<Character>> getGrid() {
-    //     if (GraphService.getGrid() == null) {
-    //         System.out.println("Grid is null");
-    //     } else {
-    //         System.out.println("Grid is not null, size: " + GraphService.getGrid().size());
-    //     }
-    //     return GraphService.getGrid();
-    // }
+    @GetMapping("/grid")
+    public Grid getGrid() {
+        return graphService.getGrid();
+    }
 
     // mg
 }
