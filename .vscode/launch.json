@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DsaprodApplication<dsaprod>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.dsa.api.dsaprod.DsaprodApplication",
+            "projectName": "dsaprod",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

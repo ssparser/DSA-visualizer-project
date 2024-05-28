@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dsa.api.dsaprod.dto.gridDTO;
+import com.dsa.api.dsaprod.model.Grid;
 import com.dsa.api.dsaprod.service.graphService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class graphController {
 
     @Autowired
-    private graphService GraphService;
+    private graphService graphService;
 
     @GetMapping("/mg")
     public String getMethodName() {
@@ -31,11 +32,11 @@ public class graphController {
     }
 
     @PostMapping("/createGrid")
-    public ResponseEntity<List<List<Character>>> createGrid(@RequestBody gridDTO gridRequest) {
+    public ResponseEntity<Grid> createGrid(@RequestBody gridDTO gridRequest) {
         try {
             int x = gridRequest.getX();
             int y = gridRequest.getY();
-            List<List<Character>> grid = GraphService.createGraph(x, y);
+            Grid grid = graphService.createGraph(x, y);
             return ResponseEntity.ok(grid);
 
         } catch (Exception e) {
@@ -43,33 +44,33 @@ public class graphController {
         }
     }
 
-    @PostMapping("/init")
-    public void startInit(@RequestBody gridDTO gridRequest) {
+    // @PostMapping("/init")
+    // public void startInit(@RequestBody gridDTO gridRequest) {
 
-        int x = gridRequest.getX();
-        int y = gridRequest.getY();
-        GraphService.initGraph(x, y);
+    //     int x = gridRequest.getX();
+    //     int y = gridRequest.getY();
+    //     GraphService.initGraph(x, y);
 
-    }
+    // }
 
-    @PostMapping("/dest")
-    public void dest(@RequestBody gridDTO gridRequest) {
+    // @PostMapping("/dest")
+    // public void dest(@RequestBody gridDTO gridRequest) {
 
-        int x = gridRequest.getX();
-        int y = gridRequest.getY();
-        GraphService.Dest(x, y);
+    //     int x = gridRequest.getX();
+    //     int y = gridRequest.getY();
+    //     GraphService.Dest(x, y);
 
-    }
+    // }
 
-    @GetMapping("/grid")
-    public List<List<Character>> getGrid() {
-        if (GraphService.getGrid() == null) {
-            System.out.println("Grid is null");
-        } else {
-            System.out.println("Grid is not null, size: " + GraphService.getGrid().size());
-        }
-        return GraphService.getGrid();
-    }
+    // @GetMapping("/grid")
+    // public List<List<Character>> getGrid() {
+    //     if (GraphService.getGrid() == null) {
+    //         System.out.println("Grid is null");
+    //     } else {
+    //         System.out.println("Grid is not null, size: " + GraphService.getGrid().size());
+    //     }
+    //     return GraphService.getGrid();
+    // }
 
     // mg
 }
