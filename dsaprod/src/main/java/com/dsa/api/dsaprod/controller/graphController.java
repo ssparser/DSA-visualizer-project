@@ -73,6 +73,11 @@ public class graphController {
     public Set<Cell> bfsAlgo() {
         return graphService.bfs();
     }
+
+    @GetMapping("/dfs")
+    public Set<Cell> dfsAlgo() {
+        return graphService.dfs();
+    }
     
     // mg
 }
