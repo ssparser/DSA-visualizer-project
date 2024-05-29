@@ -54,7 +54,7 @@ public class graphService {
                 { 1, 0 }, // Down
                 { -1, 0 } // Up
         };
-
+        visited.add(start);
         while (!q.isEmpty()) {
             Cell temp = q.poll();
 
@@ -66,7 +66,7 @@ public class graphService {
                     Cell cell = this.grid.getGrid().get(x).get(y);
                     if (!visited.contains(cell)) {
                         q.add(cell);
-                        visited.add(cell); // Mark the cell as visited
+                        visited.add(cell); 
                         if (cell.getVal() != 'S' && cell.getVal() != 'D') {
                             cell.setVal('1');
                         }
