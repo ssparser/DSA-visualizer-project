@@ -1,6 +1,7 @@
 package com.dsa.api.dsaprod.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dsa.api.dsaprod.dto.gridDTO;
+import com.dsa.api.dsaprod.model.Cell;
 import com.dsa.api.dsaprod.model.Grid;
 import com.dsa.api.dsaprod.service.graphService;
 
@@ -53,19 +55,24 @@ public class graphController {
 
     }
 
-    // @PostMapping("/dest")
-    // public void dest(@RequestBody gridDTO gridRequest) {
+    @PostMapping("/dest")
+    public void dest(@RequestBody gridDTO gridRequest) {
 
-    //     int x = gridRequest.getX();
-    //     int y = gridRequest.getY();
-    //     GraphService.Dest(x, y);
+        int x = gridRequest.getX();
+        int y = gridRequest.getY();
+        graphService.Dest(x, y);
 
-    // }
+    }
 
     @GetMapping("/grid")
     public Grid getGrid() {
         return graphService.getGrid();
     }
 
+    @GetMapping("/bfs")
+    public Set<Cell> bfsAlgo() {
+        return graphService.bfs();
+    }
+    
     // mg
 }
